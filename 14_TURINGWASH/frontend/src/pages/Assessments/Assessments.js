@@ -110,7 +110,7 @@ const Assessments = () => {
                     value={assessment || ""}
                   />
                   <div className="button-container">
-                    {!loadingWasher && <input type="submit" value="Avaliar" />}
+                    {!loadingWasher && <input type="submit" value="Enviar Avaliação" />}
                     {loadingWasher && <input type="submit" disabled value="Aguarde..." />}
                   </div>
                   {errorWasher && <Message msg={errorWasher} type="error" />}

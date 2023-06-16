@@ -127,7 +127,7 @@ const AddWash = () => {
                 />
               </div>
               <div className="add-button">
-              {!loadingWash && <input type="submit" value="Cadastrar" />}
+              {!loadingWash && <input type="submit" value="Agendar" />}
               {loadingWash && (
                 <input type="submit" disabled value="Aguarde..." />              
               )}
