@@ -6,8 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // redux
 import { getUserCars } from "../../slices/carSlice";
-import { getWashers } from "../../slices/washerSlice";
-import { useResetComponentMessage } from "../../hooks/useResetComponentMessage";
+import { getWashers, resetMessage } from "../../slices/washerSlice";
 
 import { useParams, useNavigate, Link } from "react-router-dom";
 
@@ -28,8 +27,6 @@ const Home = () => {
 
   const navigate = useNavigate()
 
-  const resetMessage = useResetComponentMessage(dispatch)
-
   useEffect(() => {
     dispatch(getUserCars(id));
   }, [dispatch, id]);
@@ -37,6 +34,12 @@ const Home = () => {
   useEffect(() => {
     dispatch(getWashers());
   }, [dispatch]);
+
+  const resetComponentMessage = () => {
+    setTimeout(() => {
+      dispatch(resetMessage());
+    }, 2000);
+  };
 
   const handleWashButtonClick = (washerName) => {
     if (selectedCar) {
@@ -49,7 +52,7 @@ const Home = () => {
         washerName
       )}`;
 
-      resetMessage();
+      resetComponentMessage();
   
       // Redirecionar para a página AddWash com os parâmetros combinados
       navigate(`/addwash/${user._id}?${params}`);
