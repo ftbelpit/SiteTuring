@@ -1,0 +1,8 @@
+{
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/2046c212-fd17-4336-a547-9c77e5a582e6/resourceGroups/turingwashreact_group/providers/Microsoft.Web/sites/turingwashreact",
+  "appService.deploySubpath": "frontend/build"
+}
