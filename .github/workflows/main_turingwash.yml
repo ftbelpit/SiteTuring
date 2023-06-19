@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'TuringWash'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_30E14887ED1D461B9FAF7D0F2E143EEA }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1048F3BC144B44E4A23F658584B0ED34 }}
           package: .
