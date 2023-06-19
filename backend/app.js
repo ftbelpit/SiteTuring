@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 // Solve CORS
-app.use(cors({ credentials: true, origin: "https://turingwashreact.azurewebsites.net/" }))
+app.use(cors({ credentials: true, origin: "https://turingwash.azurewebsites.net/" }))
 
 // Upload directory
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")))
