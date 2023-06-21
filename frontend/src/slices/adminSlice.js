@@ -78,7 +78,7 @@ export const adminSlice = createSlice({
       state.success = true
       state.error = null
       state.admin = action.payload
-      state.message = "Administrador atuzaliado com sucesso!"
+      state.message = "Administrador atualizado com sucesso!"
     })
     .addCase(updateProfileAdmin.rejected, (state, action) => {
       console.log(state, action)
