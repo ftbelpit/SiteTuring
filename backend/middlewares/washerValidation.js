@@ -26,23 +26,6 @@ const washerInsertValidation = () => {
   ]
 }
 
-const washerUpdateValidation = () => {
-  return [
-    body("name")
-      .optional()
-      .isString()
-      .withMessage("O nome é obrigatório.")
-      .isLength({ min: 2 })
-      .withMessage("O nome precisa ter no mínimo 2 caracteres."),
-    body("price")
-      .optional()
-      .isString()
-      .withMessage("O preço é obrigatório.")
-      .isLength({ min: 3 })
-      .withMessage("O preço deve ser de 2 dígitos para cima."),
-  ]
-}
-
 const commentValidation = () => {
   return [
     body("score")
@@ -57,6 +40,5 @@ const commentValidation = () => {
 
 module.exports = {
   washerInsertValidation,
-  washerUpdateValidation,
   commentValidation
 }

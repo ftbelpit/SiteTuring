@@ -1,14 +1,12 @@
 import "./Home.css"
 
 // components
-// import LikeContainer from "../../components/LikeContainer"
 import WasherItem from "../../components/WasherItem"
 import { Link } from "react-router-dom"
 
 // hooks
 import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-// import { useResetComponentMessage } from "../../hooks/useResetComponentMessage"
 
 // redux
 import { getWashers } from "../../slices/washerSlice"
@@ -16,23 +14,12 @@ import { getWashers } from "../../slices/washerSlice"
 const HomeAdmin = () => {
   const dispatch = useDispatch()
 
-  // const resetMessage = useResetComponentMessage(dispatch)
-
-  // const { admin } = useSelector((state) => state.authAdmin)
   const { washers, loading } = useSelector((state) => state.washer)
 
   // load all washers
   useEffect(() => {
-
     dispatch(getWashers())
-
   }, [dispatch])
-
-  // const handleLike = (washer) => {
-  //   dispatch(like(washer._id))
-
-  //   resetMessage()
-  // }
 
   if(loading) {
     return <p>Carregando...</p>

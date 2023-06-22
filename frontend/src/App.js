@@ -31,7 +31,6 @@ function App() {
   const {auth, loading} = useAuth()
   const { authAdmin } = useAuthAdmin()
   const { user } = useSelector((state) => state.auth)
-  // const { admin } = useSelector((state) => state.authAdmin)
 
   if(loading) {
     return <p>Carregando...</p>

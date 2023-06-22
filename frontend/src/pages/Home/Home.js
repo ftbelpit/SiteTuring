@@ -29,11 +29,8 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getUserCars(id));
-  }, [dispatch, id]);
-
-  useEffect(() => {
     dispatch(getWashers());
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const resetComponentMessage = () => {
     setTimeout(() => {

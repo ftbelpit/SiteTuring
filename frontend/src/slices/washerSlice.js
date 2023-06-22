@@ -10,22 +10,6 @@ const initialState = {
   message: null,
 }
 
-export const chooseWasher = createAsyncThunk(
-  "washer/choose",
-  async (washerId, thunkAPI) => {
-    const token = thunkAPI.getState().auth.user.token;
-
-    const data = await washerService.getWasher(washerId, token);
-
-    // Check for errors
-    if (data.errors) {
-      return thunkAPI.rejectWithValue(data.errors[0]);
-    }
-
-    return data;
-  }
-);
-
 // Insert washer
 export const insertWasher = createAsyncThunk(
   "washer/insert",
@@ -33,30 +17,6 @@ export const insertWasher = createAsyncThunk(
     const tokenAdmin = thunkAPI.getState().authAdmin.admin.token_admin
 
     const data = await washerService.insertWasher(washer, tokenAdmin)
-
-    // Check for errors
-    if(data.errors) {
-      return thunkAPI.rejectWithValue(data.errors[0])
-    }
-
-    return data
-  }
-)
-
-// Update an washer
-export const updateWasher = createAsyncThunk(
-  "washer/update",
-  async (washerData, thunkAPI) => {
-    const tokenAdmin = thunkAPI.getState().authAdmin.admin.token_admin
-
-    const data = await washerService.updateWasher(
-      { 
-        name: washerData.name,
-        price: washerData.price
-      }, 
-      washerData.id, 
-      tokenAdmin
-    )
 
     // Check for errors
     if(data.errors) {
@@ -90,18 +50,6 @@ export const getWashers = createAsyncThunk(
 
     return data 
 })
-
-// search washer by name
-export const searchWashers = createAsyncThunk(
-  "washer/search",
-  async(query, thunkAPI) => {
-    const tokenAdmin = thunkAPI.getState().authAdmin.admin.token_admin
-
-    const data = await washerService.searchWashers(query, tokenAdmin)
-
-    return data  
-  }
-)
 
 // add assessment to a washer
 export const assessments = createAsyncThunk(
@@ -154,32 +102,6 @@ export const washerSlice = createSlice({
       state.error = action.payload
       state.wash = {}
     })
-    .addCase(updateWasher.pending, (state) => {
-      state.loading = true
-      state.error = false
-    })
-    .addCase(updateWasher.fulfilled, (state, action) => {
-      state.loading = false
-      state.success = true
-      state.error = null
-      state.washers.map((washer) => {
-        if (washer._id === action.payload.washer._id) {
-          return {
-            ...washer,
-            name: action.payload.washer.name,
-            price: action.payload.washer.price
-          };
-        }
-        return washer;
-      });
-      state.message = action.payload.message
- 
-    })
-    .addCase(updateWasher.rejected, (state, action) => {
-      state.loading = false
-      state.error = action.payload
-      state.washer = {}
-    })
     .addCase(getWasher.pending, (state) => {
       state.loading = true
       state.error = false
@@ -204,16 +126,6 @@ export const washerSlice = createSlice({
       state.loading = false
       state.error = action.payload
       state.washer = {}
-    })
-    .addCase(searchWashers.pending, (state) => {
-      state.loading = true
-      state.error = false
-    })
-    .addCase(searchWashers.fulfilled, (state, action) => {
-      state.loading = false
-      state.success = true
-      state.error = null
-      state.washers = action.payload 
     })
     .addCase(assessments.fulfilled, (state, action) => {
       state.loading = false

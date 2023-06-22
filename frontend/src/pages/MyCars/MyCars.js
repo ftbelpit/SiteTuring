@@ -21,7 +21,6 @@ const MyCars = () => {
   const dispatch = useDispatch()
 
   const { user, loading } = useSelector((state) => state.user)
-  // const { user: userAuth } = useSelector((state) => state.auth)
   const { 
     cars, 
     error: errorCar, 

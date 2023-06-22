@@ -14,7 +14,7 @@ const Washer = () => {
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  const [image, setImage] = useState(null); // Alterado para null
+  const [image, setImage] = useState(null);
 
   const newWasherForm = useRef();
 
@@ -49,7 +49,7 @@ const Washer = () => {
 
     setName("");
     setPrice("");
-    setImage(null); // Resetar para null após o envio do formulário
+    setImage(null); 
 
     resetComponentMessage();
   };

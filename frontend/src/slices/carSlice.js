@@ -54,29 +54,6 @@ export const deleteCar = createAsyncThunk(
   }
 )
 
-// Update a car
-export const updateCar = createAsyncThunk(
-  "car/update",
-  async (carData, thunkAPI) => {
-    const token = thunkAPI.getState().auth.user.token
-
-    const data = await carService.updateCar(
-      { fabricante: carData.fabricante}, 
-      { modelo: carData.modelo}, 
-      { ano: carData.ano}, 
-      carData.id, 
-      token
-    )
-
-    // Check for errors
-    if(data.errors) {
-      return thunkAPI.rejectWithValue(data.errors[0])
-    }
-
-    return data
-  }
-)
-
 // get car by id
 export const getCar = createAsyncThunk(
   "car/getcar",
@@ -158,33 +135,6 @@ export const carSlice = createSlice({
       state.message = action.payload.message
     })
     .addCase(deleteCar.rejected, (state, action) => {
-      state.loading = false
-      state.error = action.payload
-      state.car = {}
-    })
-    .addCase(updateCar.pending, (state) => {
-      state.loading = true
-      state.error = false
-    })
-    .addCase(updateCar.fulfilled, (state, action) => {
-      state.loading = false
-      state.success = true
-      state.error = null
-
-      state.cars.map((car) => {
-        if(car._id === action.payload.car._id) {
-          return {
-            fabricante: action.payload.car.fabricante,
-            modelo: action.payload.car.modelo,
-            ano: action.payload.car.ano
-          };          
-        }
-        return car  
-      })
-      state.message = action.payload.message
- 
-    })
-    .addCase(updateCar.rejected, (state, action) => {
       state.loading = false
       state.error = action.payload
       state.car = {}

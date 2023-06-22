@@ -45,21 +45,6 @@ const deleteCar = async(id, token) => {
   }
 }
 
-// Update a car
-const updateCar = async (data, id, token) => {
-  const config = requestConfig("PUT", data, token)
-
-  try {
-    const res = await fetch(api + "/cars/" + id, config)
-      .then((res) => res.json())
-      .catch((err) => err)
-
-    return res
-  } catch (error) {
-    console.log(error)
-  }
-}
-
 // get a car by id
 const getCar = async (id, token) => {
   const config = requestConfig("GET", null, token)
@@ -94,7 +79,6 @@ const carService = {
   insertCar,
   getUserCars,
   deleteCar,
-  updateCar,
   getCar,
   getCars,
 }

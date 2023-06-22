@@ -21,16 +21,13 @@ const MyWashes = () => {
 
   const currentDate = new Date();
 
-  const { 
-    // user, 
-    loading } = useSelector((state) => state.user)
-  // const { user: userAuth } = useSelector((state) => state.auth)
+  const { loading } = useSelector((state) => state.user)
+
   const { 
     washes, 
     error: errorWash, 
     message: messageWash 
   } = useSelector((state) => state.wash)
-  // const {washer} = useSelector((state) => state.washer)
 
   useEffect(() => {
     dispatch(getUserWashes(id))
@@ -94,8 +91,7 @@ const MyWashes = () => {
                       {dataFormatada}
                     </>
                   )}
-              </span>
-              
+              </span>    
             </div>
           </div>
         )
