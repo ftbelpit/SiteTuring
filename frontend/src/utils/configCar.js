@@ -1,4 +1,4 @@
-export const api = "htthttps://turingwash.azurewebsites.net/api"
+export const api = "https://turingwash.azurewebsites.net/api"
 export const uploads = "https://turingwash.azurewebsites.net/uploads"
 
 export const requestConfig = (method, data, token = null) => {
