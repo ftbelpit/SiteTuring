@@ -1,5 +1,5 @@
-export const api = "https://turingwash.azurewebsites.net/api"
-export const uploads = "https://turingwash.azurewebsites.net/uploads"
+export const api = "https://localhost:5000/api"
+export const uploads = "https://localhost:5000/uploads"
 
 export const requestConfig = (method, data, token = null, image = null, token_admin = null) => {
   let config;
