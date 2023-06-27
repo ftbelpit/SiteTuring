@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 // Solve CORS
-app.use(cors({ credentials: true, origin: "https://wonderful-beach-06bb7f20f.3.azurestaticapps.net" }))
+app.use(cors({ credentials: true, origin: "https://proud-sea-05cdf520f.3.azurestaticapps.net" }))
 // app.use(cors({ credentials: true, origin: "http://localhost:3000" }))
 
 // Upload directory

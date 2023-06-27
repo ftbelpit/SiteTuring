@@ -1,5 +1,5 @@
-export const api = "https://wonderful-beach-06bb7f20f.3.azurestaticapps.net/api"
-export const uploads = "https://wonderful-beach-06bb7f20f.3.azurestaticapps.net/uploads"
+export const api = "https://proud-sea-05cdf520f.3.azurestaticapps.net/api"
+export const uploads = "https://proud-sea-05cdf520f.3.azurestaticapps.net/uploads"
 // export const api = "http://localhost:5000/api"
 // export const uploads = "http://localhost:5000/uploads"
 
