@@ -24,8 +24,9 @@ require("./config/db.js")
 // routes
 const router = require("./routes/Router.js")
 
-app.use(router)
+// Modify the base URL for the routes
+app.use("/api", router) // All routes will be prefixed with "/api"
 
 app.listen(port, () => {
   console.log(`App rodando na porta ${port}`)
-})  
+})
